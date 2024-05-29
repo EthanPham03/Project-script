@@ -4,6 +4,24 @@ import sys
 def install_package(package):
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
+def upgrade_pip():
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "pip"])
+
+def check_pip_version():
+    try:
+        import pip
+        version = pip.__version__
+        if version < "24.0":
+            print(f"Upgrading pip from version {version} to 24.0...")
+            upgrade_pip()
+        else:
+            print(f"Pip version {version} is sufficient.")
+    except ImportError:
+        print("pip is not installed. Installing now...")
+        install_package("pip")
+
+check_pip_version()
+
 try:
     import paramiko
 except ImportError:
